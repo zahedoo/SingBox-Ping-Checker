@@ -29,23 +29,7 @@ wget https://raw.githubusercontent.com/zahedoo/singping/main/install.sh
 chmod +x install.sh
 sudo ./install.sh
 ```
-
-## نصب دستی
-
-### 1. کلون کردن پروژه
-```bash
-git clone https://github.com/zahedoo/singping.git
-cd singping
-```
-
-### 2. اجرای اسکریپت نصب
-```bash
-chmod +x setup_singping.sh
-sudo ./setup_singping.sh
-```
-
 ### 3. بررسی وضعیت
-```bash
 # بررسی وضعیت سرویس
 sudo systemctl status singbox-ping
 
