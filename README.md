@@ -23,7 +23,7 @@ SingPing یک پنل مدیریت وب برای تست پینگ و بررسی ک
 
 ```bash
 # دانلود اسکریپت نصب
-wget https://raw.githubusercontent.com/zahedoo/singping/main/install.sh
+wget https://raw.githubusercontent.com/zahedoo/SingBox-Ping-Checker/refs/heads/main/install.sh
 
 # اجرای نصب
 chmod +x install.sh
@@ -278,10 +278,7 @@ sudo systemctl daemon-reload
 - [SagerNet/sing-box](https://github.com/SagerNet/sing-box) - هسته اصلی SingBox
 - جامعه توسعه‌دهندگان ایرانی
 
-## ارتباط
 
-- Issues: [GitHub Issues](https://github.com/zahedoo/singping/issues)
-- Discussions: [GitHub Discussions](https://github.com/zahedoo/singping/discussions)
 
 ---
 
