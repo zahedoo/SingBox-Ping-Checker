@@ -78,14 +78,14 @@ curl -X POST http://YOUR_SERVER_IP/test-ping \
         "successful": 10,
         "total": 10
       },
-      "tested_ip": "IP.mirzabox.info:2096"
+      "tested_ip": "127.0.0.1:2096"
     },
     "ping": {
       "message": "PING SUCCESS - HTTP 204",
       "success": true
     },
     "tcp": {
-      "message": "TCP connection successful to IP.mirzabox.info:2096",
+      "message": "TCP connection successful to 127.0.0.1:2096",
       "success": true
     }
   },
