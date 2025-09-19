@@ -1,8 +1,5 @@
-# SingPing - SingBox Ping Test Panel
+با این اسکریپت میتوانید یه کانفیگ را پینگ بگیرید و  و ببینید tcp  پینگ میدهد یا نه و اگر داد بعد اون میاد پینگ واقعی رو چک میکنه  اگر اوکی بود میاد با همون کانفیگ یه چک هاست میزنه و نتیجه رو کامل تو جیسون برمیگردونه 
 
-SingPing یک پنل مدیریت وب برای تست پینگ و بررسی کیفیت کانفیگ‌های SingBox است. این ابزار امکان تست واقعی تمام outboundهای موجود در کانفیگ را فراهم می‌کند.
-
-- 🌐 **چندزبانه**: پشتیبانی از فارسی و انگلیسی
 
 ## پیش‌نیازها
 
@@ -21,7 +18,7 @@ wget https://raw.githubusercontent.com/zahedoo/SingBox-Ping-Checker/refs/heads/m
 chmod +x install.sh
 sudo ./install.sh
 ```
-
+# طریقه استفاده
 ```
 curl -X POST http://YOUR_SERVER_IP/test-ping \
   -H "Content-Type: application/json" \
@@ -34,4 +31,32 @@ curl -X POST http://YOUR_SERVER_IP/test-ping \
     "proxy_tag": "vless-out",
     "timeout": 10
   }'
+```
+# Response
+```json
+{
+"results":{
+"iran_accessible":true,
+"iran_check":{
+"success":true,
+"summary":{
+"failed":0,
+"pending":0,
+"success_rate":100.0,
+"successful":10,
+"total":10
+},
+"tested_ip":"IP.mirzabox.info:2096"
+},
+"ping":{
+"message":"PING SUCCESS - HTTP 204",
+"success":true
+},
+"tcp":{
+"message":"TCP connection successful to IP.mirzabox.info:2096",
+"success":true
+}
+},
+"success":true
+}
 ```
