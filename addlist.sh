@@ -22,18 +22,19 @@ echo "📥 Installing Sing-Box..."
 if ! command -v sing-box &>/dev/null; then
     cd /tmp
     SINGBOX_URL=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest | grep "browser_download_url.*linux-amd64.tar.gz" | cut -d '"' -f 4)
-    wget $SINGBOX_URL
-    tar -xzf sing-box-*--linux-amd64.tar.gz
-    cd sing-box-*-linux-amd64
+    wget -O sing-box-linux-amd64.tar.gz "$SINGBOX_URL"
+    tar -xzf sing-box-linux-amd64.tar.gz
+    SINGBOX_DIR=$(tar -tzf sing-box-linux-amd64.tar.gz | head -1 | cut -f1 -d"/")
+    cd "$SINGBOX_DIR"
     mv sing-box /usr/local/bin/
     cd ..
-    rm -rf sing-box-*
+    rm -rf sing-box-linux-amd64.tar.gz "$SINGBOX_DIR"
     echo "✅ Sing-Box installed"
 else
     echo "✅ Sing-Box already installed"
 fi
 
-# Create a virtual environment and install Python requirements
+# Install Python requirements
 echo "🐍 Setting up Python virtual environment..."
 mkdir -p /opt/singbox-ping-checker
 cd /opt/singbox-ping-checker
@@ -988,7 +989,9 @@ if systemctl is-active --quiet singbox-ping; then
     echo "📍 Endpoint:"
     echo "   /test-ping - Test SingBox configuration (TCP + Ping only)"
     echo "   /batch-test - Test multiple SingBox configurations"
-    echo "   /batch-result/{id} - Get results of batch test"
+    echo "   /batch-result/{id} - Get results of batch test (successful configs only)"
+    echo "   /batch-result/{id}/passed - Get only passed configurations"
+    echo "   /batch-result/{id}/filtered - Get filtered configurations"
     echo "📋 Usage:"
     echo "   curl -X POST http://YOUR_IP/test-ping \\"
     echo "     -H \"Content-Type: application/json\" \\"
